@@ -1,4 +1,7 @@
 // Assignment Code
+const generateButton = document.getElementById('generateBtn')
+generateButton.addEventListener('click', writePassword)
+
 var generateBtn = document.querySelector("#generate");
 var charatersNum = 0;
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -31,4 +34,3 @@ function getInfo() {
 getInfo(); 
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);

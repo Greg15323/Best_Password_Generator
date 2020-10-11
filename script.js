@@ -47,6 +47,27 @@ if (confirmLength) {
     
 }
 
+var characters = '';
+characters += (lowerSelection ? lower : '');
+characters += (upperSelection ? upper : '');
+characters += (specialSelection ? special : '');
+characters += (numberSelection ? numbers : '');
+
+ pwd = password(confirmLength, characters);
+
+ document.getElementById("password").innerHTML = pwd;
+
+}
+
+funtion password(l, characters) {
+    var pwd = '';
+    for (var i = 0; i < l; ++i) {
+        pwd += characters.charAt(Math.floor(Math.random() * characters.length));
+
+    }
+    return pwd;
+}
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 

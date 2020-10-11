@@ -1,16 +1,52 @@
-// Assignment Code
-const generateButton = document.getElementById('generateBtn')
-generateButton.addEventListener('click', writePassword)
-
 var generateBtn = document.querySelector("#generate");
-var charatersNum = 0;
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*", "-", "=", "+", ".", "?"];
-var Numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+var lower = 'abcdefghijklmnopqrstuvwxyz';
+var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var special = '!@#$^&%*()+=-[]{}|:<>?,.';
+var numbers = '1234567890';
+
+var pwd = '';
+
+var lowerSelection = false;
+var upperSelection = false;
+var specialSelection = false;
+var numberSelection = false;
+
 
 // Write password to the #password input
 function writePassword() {
+var confirmLength = '';
+
+while (isNaN(congirmLength) || confirmLength < 8 || confirmLength > 128) {
+    confirmLength = prompt("How long would you like your password to be? 8 - 128 Characters max");
+    if (confirmLength === null) {
+        break;
+    }
+}
+
+if (confirmLength) {
+    if (confirm("Do you want to include lowercase characters?") == true) {
+        lowerSelection = true
+    } 
+  
+    if (confirm("Do you want to include uppercase characters?") == true) {
+        upperSelection = true
+    }
+  
+    if (confirm("Do you want to include special characters?") == true) {
+        specialSelection = true
+    }
+  
+    if (confirm("Do you want to include numerical characters?") == true) {
+        numberSelection = true
+  
+        if (lowerSelection === false && upperSelection === false && specialSelection === false && numberSelection === false) {
+          alert("At least one character type must be selected")
+      }
+  
+    
+}
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 

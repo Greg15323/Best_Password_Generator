@@ -17,7 +17,7 @@ var numberSelection = false;
 function writePassword() {
 var confirmLength = '';
 
-while (isNaN(congirmLength) || confirmLength < 8 || confirmLength > 128) {
+while (isNaN(confirmLength) || confirmLength < 8 || confirmLength > 128) {
     confirmLength = prompt("How long would you like your password to be? 8 - 128 Characters max");
     if (confirmLength === null) {
         break;
@@ -59,7 +59,7 @@ characters += (numberSelection ? numbers : '');
 
 }
 
-funtion password(l, characters) {
+function password(l, characters) {
     var pwd = '';
     for (var i = 0; i < l; ++i) {
         pwd += characters.charAt(Math.floor(Math.random() * characters.length));
@@ -68,26 +68,14 @@ funtion password(l, characters) {
     return pwd;
 }
 
-  var password = generatePassword();
+ var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-function getInfo() {
 
-    var getPasswordLength = parseInt(prompt("How long would you like your password to be? 8 - 128 Characters max"));
-    if (isNaN(getPasswordLength)) {
-        alert("Try Again. Enter a number.");
-        getInfo();
-    } else if (getPasswordLength < 8 || getPasswordLength > 128) {
-        alert("Try Again. Enter number between 8-128.");
-        getInfo();
-    }
-    var askSpecialCharacter = confirm("Do you want special characters in your Password?");
-    console.log(getPasswordLength);
-}
-getInfo(); 
 
 // Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
